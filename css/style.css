@@ -40,8 +40,8 @@ body {
 }
 .basic-imaga {
   border-radius: 10px;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
-  padding: 28px 28px 22px;
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.5);
+  padding: 10px 10px 10px;
 }
 .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
 .center { text-align: center; }
@@ -135,6 +135,28 @@ body {
       rgba(var(--overlay-rgb), var(--overlay-opacity))
     ),
     url("https://consumerclaimnow.com/images/hero-background.jpg");   /* placeholder — replace with the image URL to be provided */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;   /* this line is the parallax effect */
+  color: #fff;                    /* text over a dark overlay */
+
+
+/* iOS Safari ignores background-attachment: fixed — fall back to a normal scroll */
+@media (max-width: 900px) {
+  .section-parallax { background-attachment: scroll; }
+
+}
+}
+.section-parallax-info1 {
+  --overlay-rgb: 9, 29, 68;       /* overlay color as R, G, B — the sample's hero navy #091d44 */
+  --overlay-opacity: 0.75;        /* overlay strength */
+  background-image:
+    linear-gradient(
+      rgba(var(--overlay-rgb), var(--overlay-opacity)),
+      rgba(var(--overlay-rgb), var(--overlay-opacity))
+    ),
+    url("https://consumerclaimnow.com/images/tacos-chips.jpg");   /* placeholder — replace with the image URL to be provided */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
