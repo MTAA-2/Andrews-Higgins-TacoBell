@@ -38,7 +38,11 @@ body {
   color: var(--ink);
   line-height: 1.6;
 }
-
+.basic-imaga {
+  border-radius: 10px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  padding: 28px 28px 22px;
+}
 .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
 .center { text-align: center; }
 
