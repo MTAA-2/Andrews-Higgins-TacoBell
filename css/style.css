@@ -1,10 +1,10 @@
 /* ============================================================
    Medical Malpractice landing page — modernized design
    ------------------------------------------------------------
-   Dark navy, royal blue and sky blue with vivid green and red accents — palette
-   and typeface matched to tacobelllawsuithelp.com (framework CSS identical to
-   the uploaded file except colors and font-family values; headings switch from
-   the framework's serif to the sample's heavy sans-serif). The hero form card OVERFLOWS the hero:
+   Dark navy and charcoal, gold/bronze, firm green and rose-pink — palette matched
+   to biozorblawsuit.com (framework CSS identical to the uploaded file except
+   colors, plus the .header-phone rule restored because that site displays a
+   phone number). The hero form card OVERFLOWS the hero:
    it is pulled down past the hero's bottom edge (negative
    bottom margin) so it overlaps the section beneath it, and
    the form frame itself scrolls internally (overflow: auto)
@@ -17,15 +17,15 @@
    ============================================================ */
 
 :root {
-  --navy: #0c1f3d;
-  --navy-2: #0a3984;
-  --navy-3: #091d44;
-  --gold: #1e57a3;
-  --gold-light: #6cd9ff;
+  --navy: #122a48;
+  --navy-2: #1a1a1a;
+  --navy-3: #262626;
+  --gold: #009a44;
+  --gold-light: #8bc34a;
   --ink: #1a1a1a;
   --muted: #5f5f5f;
-  --bg: #f4f6fa;
-  --line: #d5d9e2;
+  --bg: #f2f2f2;
+  --line: #d9d9d9;
   --radius: 18px;
 }
 
@@ -38,11 +38,7 @@ body {
   color: var(--ink);
   line-height: 1.6;
 }
-.basic-imaga {
-  border-radius: 10px;
-  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.5);
-  padding: 10px 10px 10px;
-}
+
 .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
 .center { text-align: center; }
 
@@ -55,11 +51,13 @@ body {
 
 /* ---------- Header ---------- */
 
-.site-header { background: #0a3984; border-bottom: 1px solid var(--line); }
+.site-header { background: #0a072f; border-bottom: 1px solid var(--line); }
 .header-inner { display: flex; justify-content: space-between; align-items: center; padding-top: 8px; padding-bottom: 0px; }
 .logo { text-decoration: none; color: var(--navy); }
-.logo-text { font-family: "Inter", Arial, Helvetica, sans-serif; font-weight: 700; font-size: 24px; letter-spacing: 0.01em; }
+.logo-text { font-family: "Fraunces", Georgia, serif; font-weight: 700; font-size: 24px; letter-spacing: 0.01em; }
 .logo-amp { color: var(--gold); }
+.header-phone {color: #fcfcfc; font-size: 16px; font-weight: 600}
+.logo-size {width: 115px}
 
 /* ---------- Buttons ---------- */
 
@@ -76,11 +74,34 @@ body {
 .btn--small { background: var(--navy); color: #fff; padding: 10px 12px; font-size: 12px; }
 .btn--small:hover { background: var(--navy-2); }
 .btn--light { background: #fff; color: var(--navy); }
-.btn--cta { background: #22a717; color: #ffffff; padding: 15px 34px; font-size: 16px; box-shadow: 0 8px 20px rgba(34, 167, 23, 0.35); }
-.btn--cta:hover { background: #1e9413; }
+.btn--cta { background: #c2a05e; color: #ffffff; padding: 15px 34px; font-size: 16px; box-shadow: 0 8px 20px rgba(194, 160, 94, 0.35); }
+.btn--cta:hover { background: #d8bc7a; }
 
+/* Section with full-bleed background image, parallax scroll,
+   and a color overlay. Adjust --overlay-opacity: 0 = no tint, 1 = solid color. */
+.section-parallax {
+  --overlay-rgb: 9, 29, 68;       /* overlay color as R, G, B — the sample's hero navy #091d44 */
+  --overlay-opacity: 0.81;        /* overlay strength */
+  background-image:
+    linear-gradient(
+      rgba(var(--overlay-rgb), var(--overlay-opacity)),
+      rgba(var(--overlay-rgb), var(--overlay-opacity))
+    ),
+    url("https://personaljusticeclaim.com/images/halls-of-justice.jpg");   /* placeholder — replace with the image URL to be provided */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;   /* this line is the parallax effect */
+  color: #fff;                    /* text over a dark overlay */
+
+
+/* iOS Safari ignores background-attachment: fixed — fall back to a normal scroll */
+@media (max-width: 900px) {
+  .section-parallax { background-attachment: scroll; }
+
+}
+}
 /* ---------- Hero ---------- */
-
 .hero {
   background: linear-gradient(160deg, var(--navy) 0%, var(--navy-2) 55%, var(--navy-3) 100%);
   color: #fff;
@@ -106,7 +127,7 @@ body {
 }
 
 .hero-title {
-  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-family: "Fraunces", Georgia, serif;
   font-size: 52px;
   line-height: 1.08;
   margin: 0 0 18px;
@@ -122,53 +143,6 @@ body {
   font-size: 13px;
   font-weight: 600;
   color: #f2f2f2;
-}
-
-/* Section with full-bleed background image, parallax scroll,
-   and a color overlay. Adjust --overlay-opacity: 0 = no tint, 1 = solid color. */
-.section-parallax {
-  --overlay-rgb: 9, 29, 68;       /* overlay color as R, G, B — the sample's hero navy #091d44 */
-  --overlay-opacity: 0.75;        /* overlay strength */
-  background-image:
-    linear-gradient(
-      rgba(var(--overlay-rgb), var(--overlay-opacity)),
-      rgba(var(--overlay-rgb), var(--overlay-opacity))
-    ),
-    url("https://consumerclaimnow.com/images/hero-background.jpg");   /* placeholder — replace with the image URL to be provided */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;   /* this line is the parallax effect */
-  color: #fff;                    /* text over a dark overlay */
-
-
-/* iOS Safari ignores background-attachment: fixed — fall back to a normal scroll */
-@media (max-width: 900px) {
-  .section-parallax { background-attachment: scroll; }
-
-}
-}
-.section-parallax-info1 {
-  --overlay-rgb: 9, 29, 68;       /* overlay color as R, G, B — the sample's hero navy #091d44 */
-  --overlay-opacity: 0.75;        /* overlay strength */
-  background-image:
-    linear-gradient(
-      rgba(var(--overlay-rgb), var(--overlay-opacity)),
-      rgba(var(--overlay-rgb), var(--overlay-opacity))
-    ),
-    url("https://consumerclaimnow.com/images/tacos-chips.jpg");   /* placeholder — replace with the image URL to be provided */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;   /* this line is the parallax effect */
-  color: #fff;                    /* text over a dark overlay */
-
-
-/* iOS Safari ignores background-attachment: fixed — fall back to a normal scroll */
-@media (max-width: 900px) {
-  .section-parallax { background-attachment: scroll; }
-
-}
 }
 
 /* ---------- OVERFLOW FORM CARD ----------
@@ -187,7 +161,7 @@ body {
   margin-bottom: -30; /* <-- the overflow: card extends past the hero */
 }
 
-.form-heading { font-family: "Inter", Arial, Helvetica, sans-serif; font-size: 26px; margin: 0 0 4px; color: var(--navy); }
+.form-heading { font-family: "Fraunces", Georgia, serif; font-size: 26px; margin: 0 0 4px; color: var(--navy); }
 .form-sub { color: var(--muted); margin: 0 0 18px; font-size: 15px; }
 
 .form-frame {
@@ -228,7 +202,7 @@ body {
 .section-kicker--light { color: var(--gold-light); }
 
 .section-title {
-  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-family: "Fraunces", Georgia, serif;
   font-size: 38px;
   line-height: 1.15;
   margin: 0 0 20px;
@@ -243,7 +217,7 @@ body {
 .section--dark { background: var(--navy); color: #e6e6e6; }
 .section--dark .lead { color: #d9d9d9; }
 
-.section--gold { background: #d5d9e2; text-align: center; }
+.section--gold { background: #f6c1d3; text-align: center; }
 .section--gold .section-title, .section--gold .lead { margin-left: auto; margin-right: auto; }
 
 /* ---------- Cards ---------- */
@@ -280,9 +254,9 @@ body {
 .footer-phone { color: var(--gold-light); font-weight: 700; text-decoration: none; }
 .footer-nav a { display: block; color: #d9d9d9; text-decoration: none; margin-bottom: 8px; font-size: 15px; }
 .footer-nav a:hover { color: #fff; }
-.disclaimer { border-top: 1px solid rgba(255, 255, 255, 0.15); padding-top: 22px; font-size: 13px; color: #a8a8a8; }
-.footer-base { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-top: 22px; font-size: 13px; color: #a8a8a8; }
-.footer-legal a { color: #a8a8a8; text-decoration: none; }
+.disclaimer { border-top: 1px solid rgba(255, 255, 255, 0.15); padding-top: 22px; font-size: 13px; color: #9fb0c3; }
+.footer-base { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-top: 22px; font-size: 13px; color: #9fb0c3; }
+.footer-legal a { color: #9fb0c3; text-decoration: none; }
 .footer-legal .dot { margin: 0 8px; }
 
 /* ---------- Responsive ---------- */
@@ -294,8 +268,9 @@ body {
   .hero-form { margin-bottom: 1px; }
   .section--after-hero { padding-top:5px; }
   .card-grid, .footer-grid { grid-template-columns: 1fr; }
-  .section-title { font-size: 18px; }
+  .section-title { font-size: 26px; }
   .hero-sub {display: none}
+  .logo-size {width: 80px}
 }
 
 
